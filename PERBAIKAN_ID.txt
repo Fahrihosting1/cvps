@@ -1,0 +1,17 @@
+AVOLA - versi revisi (belum diuji pada VPS nyata)
+
+Perubahan:
+- Menghilangkan password default statis dari inst.sh.
+- Mengaktifkan verifikasi sertifikat pada curl (dapat memerlukan CA bundle pada lingkungan lama).
+- Memperbaiki trans.sh yang sebelumnya menimpa baris RdpPort saat menulis PasRdp.
+- SetupComplete.bat mempertahankan port dari installer dan memakai 3389 jika tidak tersedia; menolak 22.
+- Menghindari reset password Administrator menjadi kosong.
+- Mengaktifkan lockout setelah 5 percobaan gagal.
+- Menghapus diskpart resize otomatis dan penghapusan script sendiri.
+
+PENTING:
+1. Script reinstall dapat MENGHAPUS SELURUH DATA disk VPS. Backup dahulu.
+2. Jalur instalasi mengunduh file dari GitHub via confhome; ZIP lokal ini TIDAK otomatis dipakai jika menjalankan installer remote yang lama. Untuk memakai versi revisi perlu host/fork semua file dan sesuaikan confhome di inst.sh dan trans.sh.
+3. Pastikan password kuat diberikan melalui parameter installer, bukan mengandalkan default.
+4. Port RDP perlu dibuka juga di firewall penyedia VPS.
+5. Belum ada pengujian end-to-end; beberapa bagian lain belum diaudit.
