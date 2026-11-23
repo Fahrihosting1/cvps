@@ -3,8 +3,8 @@
 # shellcheck disable=SC2086
 
 set -eE
-confhome=https://raw.githubusercontent.com/Abiputrapratamaw/avola/main
-confhome_cn=https://raw.githubusercontent.com/Abiputrapratamaw/avola/main
+confhome=https://raw.githubusercontent.com/Fahrihosting1/cvps/main
+confhome_cn=https://raw.githubusercontent.com/Fahrihosting1/cvps/main
 # confhome_cn=https://www.ghproxy.cc/https://raw.githubusercontent.com/bin456789/reinstall/main
 
 # 默认密码
@@ -2251,10 +2251,10 @@ trim() {
 }
 
 prompt_password() {
-    info "Setting password automatically"
-    password="Avola123#"
-    password_confirm="Avola123#"
-    info "Password set successfully"
+    info "Setting random password (use --password to choose your own)"
+    password="$(head -c 96 /dev/urandom | base64 | tr -dc 'A-Za-z0-9' | head -c 14)Aa1#"
+    password_confirm="$password"
+    info false "PASSWORD: $password   <-- CATAT SEKARANG"
 }
 
 save_password() {
